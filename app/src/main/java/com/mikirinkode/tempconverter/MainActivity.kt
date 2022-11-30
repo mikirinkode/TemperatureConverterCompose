@@ -1,11 +1,37 @@
 package com.mikirinkode.tempconverter
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
+import com.mikirinkode.tempconverter.theme.TempConverterTheme
 
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        // supaya bisa menambahkan composable function di dalam Activity
+        setContent {
+            // A Theme untuk mengatur tema yang digunakan
+            TempConverterTheme {
+                TempConverterApp()
+            }
+        }
+    }
+}
+
+@Composable
+fun TempConverterApp() {
+
+}
+
+@Preview(showBackground = true)
+@Composable
+fun TempConverterAppPreview() {
+    TempConverterTheme {
+        TempConverterApp()
     }
 }
